@@ -1,0 +1,146 @@
+.wraper{
+    display: flex;
+    justify-content: space-around;
+    width: 1260px;
+    padding: 8px;
+
+}
+.main-contai-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col-8-cart{
+    width: 865px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px 0px;
+    background-color: #ffffff;
+
+
+}
+.col-4-cart{
+    width: 362px;
+    padding-left: 16px;
+}
+.cart-item-list{
+    padding: 24px;
+    
+    border-bottom: 1px solid #f0f0f0!important;
+
+}
+.img-cart{
+    width: 112px;
+    height: 112px;
+}
+.inner-cart{
+    display: flex;
+}
+.cart-content{
+    width: 412px;
+    padding: 0px 24px 12px 24px;
+
+}
+.cart-title{
+    font-size: 16px;
+    font-weight: 600;
+    color: #212121;
+    text-align: left;
+}
+.paragraph-cart{
+    color: #878787;
+    margin: 0px;
+    padding: 0px 0px;
+    /* word-break: break-all; */
+    word-break: break-all;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+}
+.brand-name{
+    margin-top: 8px;
+    font-size: 14px;
+    color: #878787;
+    text-align: left;
+}
+.price-cart{
+    font-size: 18px;
+    color: #212121;
+    font-weight: 500;
+    margin-right: 8px;
+    text-align: left;
+}
+.price-content{
+    text-align: left;
+    margin-top: 16px;
+}
+.discount-cart{
+    font-size: 14px;
+    font-weight: 500;
+    color: #388e3c;
+    margin-right: 10px;
+}
+.cart-qty-delete{
+    text-align: left;
+    padding-top: 10px;
+    
+}
+
+.input-qty{
+    outline: none;
+    width: 46px;
+    height: 28px;
+    padding: 3px 6px;
+    font-size: 14px;
+    font-weight: 500;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #c2c2c2;
+    margin: 0px 4px; 
+    
+}
+.roundbtn{
+    border-radius: 50%;
+    border: 1px solid #c2c2c2;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1px;
+    vertical-align: middle;
+    background: linear-gradient(#fff,#f9f9f9);    
+}
+.qty-cart{
+    display: inline-block;
+    width: 112px;
+}
+.save-remove{
+    padding-left: 24px;
+    display: inline-block;
+}
+.saveforl{
+    font-size: 16px;
+    font-weight: 500;
+    color: #212121;
+    margin-right: 24px;
+}
+.saveforl:hover{
+    color: #2864f0;
+
+}
+.saveforl-remove{
+    font-size: 16px;
+    font-weight: 500;
+    color: #212121;
+}
+.saveforl-remove:hover{
+    color: #2864f0;
+
+}
+.price-line{
+    display: flex;
+    justify-content: space-around;
+}

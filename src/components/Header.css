@@ -1,0 +1,44 @@
+.Navbar-container{
+    /* width: 1200px; */
+    background-color: #fff;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.001);
+    padding: 8px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+.navbar-sub-container{
+    width: 1200px;
+    display: flex;
+    align-items: center;
+
+    
+
+}
+.Logo{
+    width: 48px;
+    padding: 10px;
+}
+
+.text-field{
+    width: 500px;
+    margin: 0px 12px;
+}
+.nav-links{
+    width: 400px;
+    display: flex;
+    justify-content: right;
+}
+.btnLogin{
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 14px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #2874F0;
+    outline: none;
+    text-decoration: none;
+
+    
+}
