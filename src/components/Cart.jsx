@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import reducer from "../redux/cart/cart-reducer";
 import { useSelector, useDispatch } from "react-redux";
-import { ICON_TEMPLATES } from "froala-editor";
 import "./Cart.css";
-import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import { manipulateCart } from "../redux/cart/cart-action";
 import { REMOVE_ITEM, UPDATE_QTY } from "../redux/cart/cart-constants";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import CartEmpty from "./assets/Cart_emty.png";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [totalCal, setTotalCal] = useState({
@@ -14,7 +16,12 @@ const Cart = () => {
     deliveryCharge: 4,
     total: 0.0,
   });
-  const cartItems = useSelector((state) => state.cartItems);
+
+  const navigate = useNavigate();
+
+  const cartItems = useSelector((state) => state.reducer.cartItems);
+
+  console.log(cartItems, "here in cart");
 
   const dispatch = useDispatch();
 
@@ -23,19 +30,22 @@ const Cart = () => {
       var totalTemp = 0;
       var priceTemp = 0;
       var discountTemp = 0;
-
       cartItems.map((item) => {
+        
+        console.log(item, "here in CartItem in Price");
         discountTemp =
           (discountTemp + (item.price * item.discountPercentage) / 100) *
           item.qty;
         totalTemp = (totalTemp + item.price) * item.qty;
-        priceTemp = (totalTemp + discountTemp) * item.qty;
+        // priceTemp = (totalTemp + discountTemp) * item.qty;
+        priceTemp = totalTemp + discountTemp;
+        console.log(priceTemp, "priceTemp here");
       });
 
       setTotalCal((prevState) => ({
         ...prevState,
         price: Math.floor(priceTemp).toFixed(2),
-        discount:  Math.floor(discountTemp).toFixed(2),
+        discount: Math.floor(discountTemp).toFixed(2),
         total: Math.floor(totalTemp).toFixed(2),
       }));
     }
@@ -59,6 +69,15 @@ const Cart = () => {
     }
     dispatch(manipulateCart(UPDATE_QTY, tempData));
   };
+
+  const handleGoToHome = () => {
+    navigate("/");
+  };
+  const handleGoToOrderedList = () => {
+    navigate("/Form_address");
+
+    // dispatch(manipulateCart(EMPTY_CART,cartItems))
+  };
   return (
     <>
       <div className="main-contai-cart">
@@ -70,7 +89,7 @@ const Cart = () => {
                   <div className="cart-item-list" style={{}}>
                     <div className="inner-cart">
                       <div className="img-cart">
-                        <img className="img-prod-cart" src={item.thumbnail} />
+                        <img className="img-prod-cart" src={item.thumbnail} alt="Thumbnail" />
                       </div>
 
                       <div className="cart-content">
@@ -91,7 +110,9 @@ const Cart = () => {
                     <div className="cart-qty-delete">
                       <div className="qty-cart">
                         <span onClick={() => handleUpdateQty(index)}>
-                          <button className="roundbtn">-</button>
+                          <button className="roundbtn">
+                            <RemoveIcon sx={{ fontSize: "12px" }} />
+                          </button>
                         </span>
                         <span>
                           <input
@@ -101,7 +122,9 @@ const Cart = () => {
                           />
                         </span>
                         <span onClick={() => handleUpdateQty(index, true)}>
-                          <button className="roundbtn">+</button>
+                          <button className="roundbtn">
+                            <AddIcon sx={{ fontSize: "12px" }} />
+                          </button>
                         </span>
                       </div>
                       <div className="save-remove">
@@ -115,32 +138,76 @@ const Cart = () => {
                     </div>
                   </div>
                 ))}
+
+              <div className="sticky-btn-container">
+                <div className="container-btn-buy">
+                  <Button
+                    onClick={handleGoToOrderedList}
+                    variant="contained"
+                    sx={{
+                      padding: "16px 30px",
+                      width: "250px",
+                      fontSize: "16px",
+                      fontFamily: "roboto",
+                      textTransform: "uppercase",
+                      borderRadius: "2",
+                      fontWeight: "500",
+                      lineHeight: "16px",
+                    }}
+                  >
+                    Place Order
+                  </Button>
+                </div>
+              </div>
             </div>
             <div className="col-4-cart">
-              <h1>total price section</h1>
-              <div className="total price">
+              <div className="total-price-section">
+                <h1 className="headeing-for-price">PRICE DETAILS</h1>
+              </div>
+              <div className="total-price">
                 <div className="price-line">
                   <span>Price</span>
-                  <span>{totalCal.price}</span>
+                  <span>$ {totalCal.price}</span>
                 </div>
                 <div className="price-line">
                   <span>Discount</span>
-                  <span>{totalCal.discount}</span>
+                  <span className="dis-price">$ {totalCal.discount}</span>
                 </div>
                 <div className="price-line">
                   <span>Delivery Charges</span>
-                  <span>{totalCal.deliveryCharge}</span>
+                  <span className="dis-price">$ {totalCal.deliveryCharge}</span>
                 </div>
-                <div className="price-line">
-                  <span>Total</span>
-                  <span>{totalCal.total}</span>
+                <div className="total-price-line">
+                  <span className="total-text">Total</span>
+                  <span className="total-text">$ {totalCal.total}</span>
                 </div>
               </div>
             </div>
           </div>
         ) : (
-          <div>
-            <h1>Cart is empty </h1>
+          <div
+            className="cart-is-empty"
+            style={{ boxShadow: "rgb(0 0 0 / 20%) 0px 1px 2px 0px" }}
+          >
+            <img className="img-empty-cart" src={CartEmpty} alt="" />
+
+            <h1 className="cart-empty-heading">Cart is empty </h1>
+            <p className="sub-heading-cart">Add items to it now.</p>
+            <Button
+              onClick={handleGoToHome}
+              sx={{
+                fontSize: "14px",
+                backgroundColor: "#2874f0",
+                padding: "12px 72px",
+                fontFamily: "roboto",
+                boxShadow: "0 2px 4px 0 rgb(0 0 0 / 20%);",
+                borderRadius: "4px",
+                marginTop: "20px",
+              }}
+              variant="contained"
+            >
+              Shop Now
+            </Button>
           </div>
         )}
       </div>

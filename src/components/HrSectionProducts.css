@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Warper{
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    margin: 10px 8px 10px 8px;
+    border-top: 1px solid #eaeaea;
+}
+.Warper-header{
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.text-heading{
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 500;
+    text-align: left;
+}
+.rating-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 6px 3px 9px;
+    background-color: #388e3c;
+    width: 46px;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+.Card-pro > img{
+    width:230px;
+    height:250px;
+    object-fit: cover;
+}
+.cardWarper{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+}
+.Card-pro{
+    margin-right: 1rem;
+    margin-top: 1rem;
+    display: flex;flex-direction: column;
+    color: #212121;
+    text-align: center;
+
+}
+.Warper{
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+
+}
+.Card-pro >p{
+    font-size: medium;
+    font-weight: 500;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;    
+    margin-top: 15px;
+    width: 230px;
+}
+.price-offer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+.rate-{
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    color:#388e3c;
+    font-weight: 400;
+    margin-top: 10px;
+}
+.discount-offer{
+    font-size: small;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #388e3c;
+}
+.content-card{
+    display: flex;
+    justify-content: space-evenly;
+}

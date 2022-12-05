@@ -4,37 +4,47 @@ import React, { useState } from "react";
 
 // import './Components/Login/Elogin.css';
 import "./Login.css";
-import loginImage from "./assets/loginImage.svg";
-import bgimage from "./assets/background-imgfor-login.png"
+import bgimage from "./assets/background-imgfor-login.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { manipulateCart } from "../redux/cart/cart-action";
+import { LOGIN_API_DATA } from "../redux/cart/cart-constants";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-// console.log(formData)
-  const loginApi = () =>{
-      axios.post("https://dummyjson.com/auth/login",formData)
-      .then((response) =>{
 
-        console.log("Done");
-        alert("api call completed")
+  const Navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const loginApi = () => {
+    // axios.post("https://dummyjson.com/auth/login",{formData})
+    axios
+      .post("https://dummyjson.com/auth/login", {
+        username: "kminchelle",
+        password: "0lelplR",
       })
-      .catch((error)=>{
+      .then((response) => {
+        console.log(response);
+        alert("api call completed");
+        dispatch(manipulateCart(LOGIN_API_DATA, response.data));
+        localStorage.setItem("Token" ,response.data.token);
+        Navigate("/", { replace: true });
+      })
+      .catch((error) => {
         console.log(error);
-      })
-      console.log()
+      });
+  };
 
-
-  }
-
-
-  const [formValidation , setFormValidation] = useState({
+  const [formValidation, setFormValidation] = useState({
     isEmailValid: true,
     isPasswordValid: true,
-  })
-  const passwordRegex =/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
-  const emailRegex =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  });
+  // regex
+  // const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+  // const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   // const handlePasswordValidation=()=>{
   //   if(passwordRegex.test(formData.password)){
@@ -68,16 +78,12 @@ const Login = () => {
   return (
     <>
       <section className="Login-mein-section">
-
         <div className="Col-6-img-bg">
-
-          <img src={bgimage} />
-
+          <img src={bgimage} alt="bg-images" />
+          
         </div>
 
-
         <div className="Col-6 Login-inputs">
-
           <h1>Login</h1>
 
           <TextField
@@ -89,39 +95,35 @@ const Login = () => {
             label="Enter Email"
             value={formData.username}
             onChange={(event) => {
-                setFormData((prevState) => ({
+              setFormData((prevState) => ({
                 ...prevState,
                 username: event.target.value,
               }));
 
-              setFormValidation((prevState) =>({
+              setFormValidation((prevState) => ({
                 ...prevState,
-                isEmailValid: true ,
-            }));
-            }
-
-            }
+                isEmailValid: true,
+              }));
+            }}
           />
           <TextField
-          error={!formValidation.isPasswordValid}
-          helperText={!formValidation.isPasswordValid&&"Invalid Password"}
+            error={!formValidation.isPasswordValid}
+            helperText={!formValidation.isPasswordValid && "Invalid Password"}
             // onBlur={handlePasswordValidation}
             className="input-pass"
             type={"password"}
             label="Enter Password"
             value={formData.password}
             onChange={(event) => {
-                setFormData((prevState) =>({
-                    ...prevState,
-                    password: event.target.value,
-                }));
-                setFormValidation((prevState)=>({
-                    ...prevState,
-                    isPasswordValid:true,
-                }));
-            
-            }
-            }
+              setFormData((prevState) => ({
+                ...prevState,
+                password: event.target.value,
+              }));
+              setFormValidation((prevState) => ({
+                ...prevState,
+                isPasswordValid: true,
+              }));
+            }}
           />
           <Button variant="contained" className="Login-btn" onClick={loginApi}>
             Login

@@ -1,7 +1,7 @@
 import { Button, Rating } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./DetailPage.css";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -10,23 +10,26 @@ import { ADD_ITEM } from "../redux/cart/cart-constants";
 
 const DetailPage = () => {
   const [data1, setData1] = useState({});
+
   const [value, setValue] = React.useState(1);
 
   const [isGotoCartVisible, setIsGotoCartVisible] = useState(false);
+
   const params = useParams();
+
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const cartItems = useSelector((state) => state.cartItems);
+  const cartItems = useSelector((state) => state.reducer.cartItems);
 
   const detailData = () => {
     axios
       .get(`https://dummyjson.com/products/${params.id}`)
       .then((res) => {
-        setData1({ ...res.data, qty: 1 });
-        console.log("response::::::::", res);
+        setData1({ ...res.data, qty: 1 })
+        console.log("response::::::::", res)
       })
-      .catch((err) => ("error::::::::", err));
+      .catch((err) => ("error::::::::", err))
   };
 
   useEffect(() => {
@@ -40,24 +43,17 @@ const DetailPage = () => {
       setIsGotoCartVisible(false);
     }
   }, [cartItems, data1]);
-  // const{state}=useLocation();
-
-  // const stock1 = data1.stock
-  // if(stock1<=33){
-  //   console.log(stock1+ "is Avaliable")
-
-  // }else{
-  //   console.log(stock1,"is only")
-  // }
-  // console.log(stock1)
 
   const handleAddToCart = () => {
     dispatch(manipulateCart(ADD_ITEM, data1));
   };
+  // const handleBuyNow = () => {};
 
   const handleGotoCart = () => {
     navigate("/cart");
   };
+
+  console.log(data1, "here in images");
   return (
     <>
       <div className="main-container-detail-page">
@@ -65,11 +61,11 @@ const DetailPage = () => {
           <div className="col-4" style={{ display: "flex" }}>
             <div className="side-img-col">
               <div className="side-img-container">
-                <img className="side-img" src="/" />
+                <img className="side-img" src={data1.images} alt="preview-img"/>
               </div>
             </div>
             <div className="product-image">
-              <img className="product-thumbnail" src={data1.thumbnail} />
+              <img className="product-thumbnail" src={data1.thumbnail} alt="thumbnail" />
             </div>
           </div>
           {/* <div> */}
@@ -78,6 +74,7 @@ const DetailPage = () => {
               sx={{ width: "249px" }}
               variant="contained"
               style={{ marginRight: "12px" }}
+              onClick={handleAddToCart}
             >
               Buy Now
             </Button>
@@ -110,7 +107,7 @@ const DetailPage = () => {
               name="size-small"
               value={value}
               max={1}
-              sx={{ fontSize: "14px", color: "#fff" }}
+              sx={{ fontSize: "14px", color: "#ffffff" }}
             />
           </div>
           <section className="pricing">

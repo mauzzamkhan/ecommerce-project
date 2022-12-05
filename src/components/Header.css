@@ -1,32 +1,45 @@
 .Navbar-container{
     /* width: 1200px; */
-    background-color: #fff;
+    background-color: #5495ff;
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.001);
-    padding: 8px 0px;
+    padding: 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 20;
 }
 .navbar-sub-container{
-    width: 1200px;
+    /* width: 1200px; */
+    width: 80%;
+    padding: 0px 40px;
     display: flex;
     align-items: center;
 
     
 
 }
+
+
+
 .Logo{
-    width: 48px;
-    padding: 10px;
+    width: 80px;
+    padding-top: 8px;
 }
 
 .text-field{
-    width: 500px;
+    /* width: 500px; */
+    width: 45%;
     margin: 0px 12px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: #fff;
+    padding-right: 12px;
 }
+
 .nav-links{
-    width: 400px;
+    /* width: 400px; */
+    width: 32%;
     display: flex;
     justify-content: right;
 }
@@ -36,9 +49,63 @@
     line-height: 14px;
     border-radius: 4px;
     color: #fff;
-    background-color: #2874F0;
+    background-color: transparent;
     outline: none;
     text-decoration: none;
+    transition: background-color 500ms ease-in;
 
-    
+}
+.btnLogin:hover{
+    background-color: #fff;
+    color: #2874F0;
+}
+.btnOrder{
+    padding: 8px 12px;
+    margin-right: 12px;
+    font-size: 14px;
+    line-height: 14px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: transparent;
+    outline: none;
+    text-decoration: none;
+    transition: background-color 500ms ease-in;
+
+
+}
+.btnOrder:hover{
+    background-color: #fff;
+    color: #2874F0;
+    /* transition: cubic-bezier(0.075, 0.82, 0.165, 1); */
+
+
+}
+
+.search-input-field{
+    width: 100%;
+    height: 36px;
+    padding: 0px 16px;
+    font-size: 14px;
+    border: none;
+}
+.search-input-field:focus-visible{
+    outline: 1px solid #c4c4c4!important;
+
+}
+
+
+.profile-img-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-left: 20px;
+
+}
+.profile-Img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 100%;
+
 }

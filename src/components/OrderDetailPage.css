@@ -1,0 +1,79 @@
+.main_container_order_detail{
+    margin: 40px 80px;
+    /* background-color: aqua; */
+}
+.warper_order_detail{
+    /* width: 80%; */
+}
+.order_address_section{
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 2%);
+    background-color: #fff;
+    padding: 24px;
+    margin: 16px 0px;
+
+}
+.order_product_details{
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 2%);
+    background-color: #fff;
+    padding: 24px;
+    margin-bottom: 16px ;
+}
+.Sub_Heading{
+    font-size: 16px;
+    font-weight: 500;
+    color: #212121;
+    line-height: 20px;
+    margin-bottom: 8px;
+
+
+}
+.main_text{
+    font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+    line-height: 18px;
+    margin-top: 10px;
+}
+.col_4_img{
+   max-width: 110px;
+   padding: 0px 18px;
+    height: 75px;
+    
+}
+.col_4_product_details{
+    width: 33%;
+}
+.col_8_details{
+    width: 70%;
+}
+.col_4_product_details{
+    display: flex;
+}
+.title_of_product{
+    font-size: 14px;
+    font-weight: 600;
+    color:#212121;
+    cursor: pointer;
+    padding-bottom: 10px;
+
+}
+.details_of_product{
+    font-size: 12px;
+    color: #878787;
+    margin-bottom: 4px;
+
+}
+.price_of_product{
+    font-size: 16px;
+    font-weight: 600;
+    color: #212121;
+
+}
+.row{
+    display: flex;
+    flex-direction: row;
+
+}
+.col_6_order_status{
+    width: 50%;
+}

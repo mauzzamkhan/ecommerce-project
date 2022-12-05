@@ -1,7 +1,7 @@
 .wraper{
     display: flex;
     justify-content: space-around;
-    width: 1260px;
+    /* width: 1260px; */
     padding: 8px;
 
 }
@@ -11,15 +11,15 @@
     align-items: center;
 }
 .col-8-cart{
-    width: 865px;
+    /* width: 865px; */
     box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px 0px;
     background-color: #ffffff;
 
 
 }
 .col-4-cart{
-    width: 362px;
-    padding-left: 16px;
+    /* width: 362px; */
+    margin-left: 16px;
 }
 .cart-item-list{
     padding: 24px;
@@ -143,4 +143,91 @@
 .price-line{
     display: flex;
     justify-content: space-around;
+}
+.cart-is-empty{
+    width: 1200px;
+    padding: 40px 0px;
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.img-empty-cart{
+    height: 162px;
+}
+.cart-empty-heading{
+    font-size: 18px;
+    color: #212121;
+    margin-top: 24px;
+}
+.sub-heading-cart{
+    font-size: 12px;
+    margin-top: 10px;
+    color: #212121;
+}
+.sticky-btn-container{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 64px;
+    bottom: 0;
+    z-index: 2;
+}
+.container-btn-buy{
+    padding: 16px 22px;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px 0 rgb(0 0 0 / 10%);
+    border-top: 1px solid #f0f0f0;
+    text-align: right;
+}
+.col-4-cart{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow:0 1px 1px 0 rgb(0 0 0 /20%)
+}
+.total-price-section{
+    padding: 13px 24px;
+    border-bottom: 1px solid #f0f0f0;
+
+}
+.headeing-for-price{
+    font-size: 16px;
+    color: #878787;
+    text-align: left;
+    font-weight: 500;
+}
+.price-line{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    align-items: flex-start;
+}
+.total-price{
+    padding: 0px 24px;
+    
+}
+span{
+    
+}
+.dis-price{
+    color:#388e3c ;
+}
+.total-text{
+    font-size: 18px;
+    color: #212121;
+    margin: 20px 0px;
+    font-weight: 500;
+
+}
+.total-price-line{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    align-items: flex-start;
+    border-bottom: 1px dashed #e0e0e0;
+    border-top: 1px dashed #e0e0e0;
+    
 }

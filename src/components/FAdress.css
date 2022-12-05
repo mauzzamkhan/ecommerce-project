@@ -1,0 +1,31 @@
+.col-8-add{
+        width: 865px;
+        box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px 0px;
+        background-color: #ffffff;
+}
+.header{
+        padding: 12px 24px;
+        background-color: #5495ff;
+        text-transform: uppercase;
+}
+.heading-add{
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: 500;
+        text-align: left;
+}
+.content-add{
+        padding: 16px 24px;
+        background-color: #f5faff;
+        text-align: left;
+}
+.container-of-fields{
+        width: 575px;
+        text-align: left;
+}
+.main-contai-form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }

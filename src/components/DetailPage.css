@@ -19,6 +19,9 @@
     /* height: 440px; */
     padding: 16px 0px 16px 0px;
     border: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .Content-of-product{
     width: 742px;
@@ -34,7 +37,6 @@
 }
 .product-thumbnail{
     /* width: 100%; */
-    padding-top: 20px;
     height: 416px;
     width: 416px;
     
@@ -52,9 +54,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1px 4px 3px 6px;
+    padding: 2px 6px 3px 9px;
     background-color: #388e3c;
-    width: 44px;
+    width: 46px;
     border-radius: 3px;
     margin-top: 8px;
 }
