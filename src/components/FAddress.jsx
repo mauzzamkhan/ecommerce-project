@@ -46,7 +46,7 @@ const FAddress = () => {
     ];
     // sending to reducer in orderList
     dispatch(manipulateCart(ORDER_LIST, orderList));
-    console.log(orderList, "Here in orderList in Fadd");
+    // console.log(orderList, "Here in orderList in Fadd");
 
     // onClicking the Btn CartItem will be Empty
     dispatch(manipulateCart(EMPTY_CART, cartItems));
